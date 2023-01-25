@@ -13,7 +13,7 @@ const SearchBar = ({ setUsers, users }) => {
       setError(true)
     } else {
       setUsers(await fetchUsers(username))
-
+      setError(false)
       setUsername("")
     }
   }

@@ -407,3 +407,18 @@ footer {
   flex-direction: column;
   justify-content: space-between;
 }
+
+.search-clear {
+  grid-column: 1 / -1;
+  border-radius: 15px;
+  border: none;
+  margin-top: 10px;
+  font-size: 20px;
+  color: #ececee;
+  background-color: #262831;
+  padding: 10px 20px;
+}
+
+.search-clear:hover {
+  cursor: pointer;
+}

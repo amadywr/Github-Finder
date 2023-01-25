@@ -19,13 +19,17 @@ function App() {
             path="/"
             element={
               <>
-                <SearchBar setUsers={setUsers} />
+                <SearchBar setUsers={setUsers} users={users} />
                 <SearchUserList users={users} />
               </>
             }
           />
 
           <Route path="/users/:username" element={<UserProfile />} />
+          <Route
+            path="*"
+            element={<h1 className="container">Error 404 page not found</h1>}
+          />
         </Routes>
         <Footer />
       </Router>

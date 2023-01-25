@@ -2,7 +2,7 @@ import React from "react"
 import { fetchUsers } from "../fetchUsers"
 import { useState } from "react"
 
-const SearchBar = ({ setUsers }) => {
+const SearchBar = ({ setUsers, users }) => {
   const [username, setUsername] = useState("")
   const [error, setError] = useState(false)
 
@@ -18,6 +18,10 @@ const SearchBar = ({ setUsers }) => {
     }
   }
 
+  function handleClear() {
+    setUsers([])
+  }
+
   return (
     <div className="container searchbar">
       <form onSubmit={handleSubmit} className="search-form">
@@ -30,6 +34,11 @@ const SearchBar = ({ setUsers }) => {
           value={username}
         />
         <input type="submit" value="Search" className="search-btn" />
+        {users.length > 0 && (
+          <button onClick={handleClear} className="search-clear">
+            Clear
+          </button>
+        )}
       </form>
     </div>
   )

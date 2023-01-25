@@ -71,6 +71,12 @@ const UserProfile = () => {
               </p>
             </div>
           </div>
+          <div>
+            <p className="profile-links-title">Member since</p>
+            <p className="profile-links-number">
+              {user.created_at !== null ? user.created_at : "Null"}
+            </p>
+          </div>
         </div>
       </div>
 
@@ -111,9 +117,11 @@ const UserProfile = () => {
 
       <div className="profile-bottom">
         <h2>Public Repositories</h2>
-        {repos.map((repo) => (
-          <Repo key={repo.id} repo={repo} />
-        ))}
+        {repos.length <= 0 ? (
+          <p>No repository</p>
+        ) : (
+          repos.map((repo) => <Repo key={repo.id} repo={repo} />)
+        )}
       </div>
     </div>
   )

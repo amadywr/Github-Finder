@@ -13,7 +13,7 @@ const Followings = ({ setShowBlur }) => {
     fetchUserFollowings(username).then((followings) =>
       setFollowings(followings)
     )
-  }, [])
+  }, [username])
 
   const navigate = useNavigate()
 

@@ -19,7 +19,7 @@ const UserProfile = ({ showBlur, setShowBlur }) => {
   useEffect(() => {
     fetchUser(username).then((user) => setUser(user))
     fetchUserRepos(username).then((repos) => setRepos(repos))
-  }, [])
+  }, [username])
 
   const date = moment(user.created_at)
   const formatDate = date.fromNow()

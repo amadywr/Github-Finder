@@ -16,7 +16,7 @@ const Repo = ({ repo }) => {
     ) {
       setShowBtn(false)
     }
-  }, [])
+  }, [repo.homepage])
 
   return (
     <div className='repo'>

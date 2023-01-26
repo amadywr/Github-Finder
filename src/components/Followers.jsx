@@ -11,7 +11,7 @@ const Followers = ({ setShowBlur }) => {
   // eslint-disable-next-line
   useEffect(() => {
     fetchUserFollowers(username).then((followers) => setFollowers(followers))
-  }, [])
+  }, [username])
 
   const navigate = useNavigate()
 

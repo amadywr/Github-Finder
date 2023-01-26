@@ -8,9 +8,10 @@ const Followers = ({ setShowBlur }) => {
 
   const [followers, setFollowers] = useState([])
 
+  // eslint-disable-next-line
   useEffect(() => {
     fetchUserFollowers(username).then((followers) => setFollowers(followers))
-  })
+  }, [])
 
   const navigate = useNavigate()
 

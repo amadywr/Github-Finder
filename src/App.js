@@ -1,22 +1,23 @@
-import "./App.css"
-import { useState } from "react"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import UserProfile from "./components/UserProfile"
-import Navbar from "./components/Navbar"
-import SearchBar from "./components/SearchBar"
-import SearchUserList from "./components/SearchUserList"
-import Footer from "./components/Footer"
+import './App.css'
+import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import UserProfile from './components/UserProfile'
+import Navbar from './components/Navbar'
+import SearchBar from './components/SearchBar'
+import SearchUserList from './components/SearchUserList'
+import Footer from './components/Footer'
 
 function App() {
   const [users, setUsers] = useState([])
+  const [showBlur, setShowBlur] = useState(false)
 
   return (
-    <div className="homepage">
+    <div className={`homepage `}>
       <Router>
-        <Navbar />
+        <Navbar showBlur={showBlur} />
         <Routes>
           <Route
-            path="/"
+            path='/'
             element={
               <>
                 <SearchBar setUsers={setUsers} users={users} />
@@ -25,13 +26,18 @@ function App() {
             }
           />
 
-          <Route path="/users/:username" element={<UserProfile />} />
           <Route
-            path="*"
-            element={<h1 className="container">Error 404 page not found</h1>}
+            path='/users/:username/*'
+            element={
+              <UserProfile showBlur={showBlur} setShowBlur={setShowBlur} />
+            }
+          />
+          <Route
+            path='*'
+            element={<h1 className='container'>Error 404 page not found</h1>}
           />
         </Routes>
-        <Footer />
+        <Footer showBlur={showBlur} />
       </Router>
     </div>
   )

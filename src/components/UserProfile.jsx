@@ -135,7 +135,10 @@ const UserProfile = ({ showBlur, setShowBlur }) => {
 
           <div className='profile-middle-column divider'>
             <div>
-              <p className='profile-stats-title'>Public Repos</p>
+              <a href={'#profile-bottom'}>
+                <p className='profile-stats-title profile-FF'>Public Repos</p>
+              </a>
+
               <p className='profile-stats-number'>{user.public_repos}</p>
             </div>
             <AiFillDatabase className='profile-stats-icons' />
@@ -151,7 +154,7 @@ const UserProfile = ({ showBlur, setShowBlur }) => {
           </div>
         </div>
 
-        <div className='profile-bottom'>
+        <div className='profile-bottom' id='profile-bottom'>
           <h2>Public Repositories</h2>
           {repos.length <= 0 ? (
             <p>No repository</p>

@@ -29,11 +29,15 @@ const Followings = ({ setShowBlur }) => {
 
       <h1>Followings</h1>
       <div>
-        {followings.map((following) => (
-          <p key={following.id} className={'items'}>
-            {following.login}
-          </p>
-        ))}
+        {followings.length > 0 ? (
+          followings.map((following) => (
+            <p key={following.id} className={'items'}>
+              {following.login}
+            </p>
+          ))
+        ) : (
+          <p>No Followings</p>
+        )}
       </div>
     </div>
   )

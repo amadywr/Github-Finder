@@ -19,11 +19,6 @@ const Followers = ({ setShowBlur }) => {
     navigate(`/users/${username}`)
   }
 
-  // function handleUsersBtn(user) {
-  //   setShowBlur(false)
-  //   navigate(`/users/${user}`)
-  // }
-
   return (
     <div className='following-followers'>
       <div className='close-btn-wrapper'>
@@ -32,11 +27,15 @@ const Followers = ({ setShowBlur }) => {
 
       <h1>Followers</h1>
       <div>
-        {followers.map((follower) => (
-          <p key={follower.id} className={'items'}>
-            {follower.login}
-          </p>
-        ))}
+        {followers.length > 0 ? (
+          followers.map((follower) => (
+            <p key={follower.id} className={'items'}>
+              {follower.login}
+            </p>
+          ))
+        ) : (
+          <p>No Followers</p>
+        )}
       </div>
     </div>
   )
